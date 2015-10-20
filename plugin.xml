@@ -20,12 +20,12 @@
   <platform name="android">
 
     <config-file target="res/xml/config.xml" parent="/*">
-      <feature name="Hello">
-        <param name="android-package" value="com.groupe.sii.deviceDisplayMetrics.DeviceDisplayMetrics"/>
+      <feature name="DeviceDisplayMetrics">
+        <param name="android-package" value="com.groupesii.displaymetrics.DeviceDisplayMetrics"/>
       </feature>
     </config-file>
 
-    <source-file src="src/android/DeviceDisplayMetrics.java" target-dir="src/com/groupe-sii/device-display-metrics/"/>
+    <source-file src="src/android/DeviceDisplayMetrics.java" target-dir="src/com/groupesii/displaymetrics/"/>
   </platform>
 
   <platform name="ios">

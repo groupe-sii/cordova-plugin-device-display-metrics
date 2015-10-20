@@ -1,12 +1,11 @@
-package com.groupe.sii.deviceDisplayMetrics;
+package com.groupesii.displaymetrics;
 
 import org.apache.cordova.*;
 import org.json.JSONArray;
 import org.json.JSONException;
 
 import android.util.DisplayMetrics;
-
-import android.util.Log;
+import android.content.Context;
 
 public class DeviceDisplayMetrics extends CordovaPlugin {
 
@@ -15,23 +14,18 @@ public class DeviceDisplayMetrics extends CordovaPlugin {
     @Override
     public boolean execute(String action, JSONArray data, CallbackContext callbackContext) throws JSONException {
 
-        DisplayMetrics metrics = new DisplayMetrics();
+        Context context=this.cordova.getActivity().getApplicationContext();
 
+        DisplayMetrics metrics = context.getResources().getDisplayMetrics();
         densityDpi = metrics.densityDpi;
-
-        Log.i("DeviceDisplayMetrics", " action: " + action);
 
         if (action.equals("getDpi")) {
 
-            String message = "Dpi: " + densityDpi;
-            callbackContext.success(message);
+            callbackContext.success(densityDpi);
 
             return true;
-
         } else {
-            
             return false;
-
         }
     }
 }

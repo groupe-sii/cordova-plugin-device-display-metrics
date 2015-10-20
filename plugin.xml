@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+        id="com.groupe-sii.device-display-metrics"
+        version="0.0.1">
+
+  <name>Cordova plugin device display metrics</name>
+
+  <description>Cordova plugin device display metrics</description>
+
+  <engines>
+    <engine name="cordova" version=">=3.4.0"/>
+  </engines>
+
+  <asset src="www/device-metrics.js" target="js/device-metrics.js"/>
+
+  <js-module src="www/device-metrics.js" name="deviceMetrics">
+    <clobbers target="deviceMetrics" />
+  </js-module>
+
+  <platform name="android">
+
+    <config-file target="res/xml/config.xml" parent="/*">
+      <feature name="Hello">
+        <param name="android-package" value="com.groupe.sii.deviceDisplayMetrics.DeviceDisplayMetrics"/>
+      </feature>
+    </config-file>
+
+    <source-file src="src/android/DeviceDisplayMetrics.java" target-dir="src/com/groupe-sii/device-display-metrics/"/>
+  </platform>
+
+  <platform name="ios">
+    
+    <config-file target="config.xml" parent="/widget">
+      <feature name="DeviceDisplayMetrics">
+        <param name="ios-package" value="DeviceDisplayMetrics" />
+      </feature>
+    </config-file>
+
+    <header-file src="src/ios/DeviceDisplayMetrics.h" target-dir="device-display-metrics"/>
+    <source-file src="src/ios/DeviceDisplayMetrics.m" target-dir="device-display-metrics"/>
+  </platform>
+
+</plugin>

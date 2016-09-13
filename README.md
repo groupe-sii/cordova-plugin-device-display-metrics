@@ -6,33 +6,38 @@ Simple plugin that returns the device display metrics: dpi, etc.
 Create a new Cordova Project
 
     $ cordova create hello com.example.helloapp Hello
-    
+
 Install the plugin
 
     $ cd hello
     $ cordova plugin add com.groupe-sii.device-display-metrics
-    
+
+Call the APIs in your project
 
 ```js
-    var success = function(metrics) {
-        alert(metrics);
-    }
+var success = function(metrics) {
+    console.log(metrics);
+}
 
-    var failure = function() {
-        alert("Error calling DeviceDisplayMetrics Plugin");
-    }
+var failure = function() {
+    alert('Error calling DeviceDisplayMetrics Plugin');
+}
 
+document.addEventListener('deviceready', onDeviceReady);
+
+function onDeviceReady() {
     deviceMetrics.getDpi('', success, failure);
+}    
 ```
 
-Install iOS or Android platform
+Install __iOS__ and/or __Android__ platform
 
     cordova platform add ios
     cordova platform add android
-    
+
 Run the code
 
-    cordova run 
+    cordova run
 
 ## More Info
 
